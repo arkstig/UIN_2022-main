@@ -10,13 +10,23 @@ function Todo({ id, text, removeTodo }) {
 
   return (
     <article>
-      <p>Id: {id}</p>
-      <p>Todo: {text}</p>
-      <p>Status: {status === true ? 'complete' : 'Not Completed'}</p>
+      <p>
+        <h2>Id:</h2> {id}
+      </p>
+      <p>
+        <h2>Todo:</h2> {text}
+      </p>
+      <p>
+        <h2>Status:</h2> {status === true ? 'complete' : 'Not Completed'}
+      </p>
       <button hidden={status} onClick={getStatus} type="button">
         complete
       </button>
-      <button onClick={() => removeTodo(id)} type="button">
+      <button
+        className="deleteBtn"
+        onClick={() => removeTodo(id)}
+        type="button"
+      >
         Delete
       </button>
     </article>

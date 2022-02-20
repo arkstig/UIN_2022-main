@@ -1,19 +1,77 @@
-* {
-  margin: 0;
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&display=swap');* {
   padding: 0;
+  margin: 0 auto;
+  font-family: 'Heebo', sans-serif;
+  background-color: #718355;
 }
 
 input {
-  background-color: grey;
-  color: white;
+  background-color: #e9f5db;
+  color: black;
+  width: 93%;
+  height: 40px;
+  border-radius: 5px;
+  font-weight: 800;
+  padding: 0px 10px;
 }
 
+
 button {
-  border: 1px solid black;
+  border: 1px solid #e9f5db;
   margin: 10px;
   padding: 2px;
+  width: 100px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #b5c99a;
+  font-size: 20px;
+
+}
+
+.deleteBtn {
+  background-color: #718355;
 }
 
 button:hover {
   background-color: grey;
+}
+
+form {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+section {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+article {
+  width: 40%;
+  background-color: #cfe1b9;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+label {
+  font-size: 72px;
+  text-transform: uppercase;
+  color: #e9f5db;
+  font-weight: 900;
+}
+
+p {
+  background-color: #cfe1b9;
+}
+
+h2 {
+  font-size: 20px;
+  background-color: #cfe1b9;
+  margin-bottom: 5px;
+  
 }
