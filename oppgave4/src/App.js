@@ -31,29 +31,25 @@ function App() {
     setSlider(pictures[event.currentTarget.id])
     switch (event.currentTarget.id) {
       case '0':
-        console.log('design')
         break
       case '1':
-        console.log('programming')
         break
       case '2':
-        console.log('support')
         break
       default:
         break
     }
   }
 
+  const [bgColor, setBgColor] = useState('')
   const handleClickColor = (e) => {
     switch (e.target.value) {
       case 'blue':
-        return 'hue-rotate(30deg)'
+        return setBgColor('hue-rotate(30deg)')
       case 'red':
-        return 'hue-rotate(90deg)'
-      case '2':
-        break
+        return setBgColor('hue-rotate(90deg)')
       default:
-        break
+        return setBgColor('')
     }
   }
 
@@ -66,7 +62,7 @@ function App() {
             title={slider.text}
             style={{
               backgroundImage: `url(${slider.image})`,
-              filter: `${({ color }) => handleClickColor(color)}`,
+              filter: bgColor,
             }}
             className="pictureContainer"
           />
@@ -79,7 +75,7 @@ function App() {
             />
             <button
               onClick={handleClickColor}
-              id="red"
+              value="red"
               className="two"
               type="button"
             />
