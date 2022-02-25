@@ -42,13 +42,10 @@ function App() {
     setCurrent(contentList[event.currentTarget.id])
     switch (event.currentTarget.id) {
       case '0':
-        console.log('design')
         break
       case '1':
-        console.log('programming')
         break
       case '2':
-        console.log('support')
         break
       default:
         break

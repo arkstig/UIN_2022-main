@@ -69,36 +69,51 @@ aside img {
 aside button {
   padding: 0.5rem 1rem;
   border: 1px solid #ccc;
+  margin: 5px;
 }
 
 aside article {
-  max-width: 150px;
+  max-width: 250px;
   display: flex;
   flex-direction: row;
   background-color: grey;
   margin-bottom: 20px;
 }
 
-aside {
-  padding: 20px;
+aside article section {
+  
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-evenly;
+  
+}
+
+aside article section span {
+  
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
+  
+}
+
+aside {
+  padding: 20px 70px;
+  display: flex;
+  flex-direction: column;
+  grid-area: sidebar;
+  align-items: flex-start;
+  align-content: flex-start;
 }
 
 .Grid {
   display: grid;
-  grid-template-columns: 1fr 1fr  1fr;
+  grid-template-columns: 1fr 1.2fr  0.8fr;
   grid-template-rows: auto;
   grid-template-areas: 
     "main main  sidebar"
     "footer footer  footer";
 }
 
-aside {
-  grid-area: sidebar;
-}
 
 main  {
   grid-area: main;
@@ -121,12 +136,25 @@ h1 {
   font-size: 70px;
 }
 
+h2 {
+  font-size: 30px;
+}
+
+h3 {
+  margin: 2px;
+}
+
 .forfatter {
   font-size: 14px;
 }
 
 footer {
   grid-area: footer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: grey;
 }
 
 .artikkelTekst {
