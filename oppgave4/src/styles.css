@@ -8,8 +8,11 @@
 }
 
 button {
-  background-color: grey;
   border: none;
+  background-color: white;
+  cursor: pointer;
+  border-radius: 5px;
+
 }
 h1 {
   margin-bottom: 10px;;
@@ -46,6 +49,12 @@ h1 {
   border-radius: 100%;
 }
 
+.activeColor  {
+  box-shadow: 0px 2px 10px #888888;
+  border: 3px solid white;
+}
+
+
 .sliderBtn {
   width: 30px;
   height: 30px;
@@ -59,7 +68,9 @@ h1 {
   height: 400px;
   background-position: center;
   background-size: cover;
-  margin-bottom: 40px;  
+  margin-bottom: 30px;  
+  border-radius: 5px;
+
 }
 
 .container {
@@ -69,6 +80,9 @@ h1 {
 
 .containerRelative {
   position: relative;
+  background-color: black;
+  box-shadow: 0px 0px 15px #888888;
+  border-radius: 5px;
 
 }
 
@@ -83,5 +97,10 @@ nav {
   padding-right: 20px;
   gap: 15px;
   box-shadow: 5px 5px 10px #888888;
+  border-radius: 5px;
 }
 
+.active {
+  background-color: #2E2E2E;
+  color: #F5F5F5;
+}

@@ -17,39 +17,62 @@ function App() {
     },
     {
       id: 3,
-      altText: 'A camera',
+      altText: 'A women walking',
       image:
-        'https://images.unsplash.com/photo-1645584376036-67b47e31c6e3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80',
+        'https://images.unsplash.com/photo-1645785512235-d76e6898ceaa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
     },
   ]
 
   const [slider, setSlider] = useState(pictures[0])
 
+  const [active, setActive] = useState('0')
   const handleClick = (event) => {
     event.preventDefault()
     console.log('clicked')
     setSlider(pictures[event.currentTarget.id])
     switch (event.currentTarget.id) {
       case '0':
-        break
+        setActive(event.currentTarget.id)
+        return
       case '1':
+        setActive(event.currentTarget.id)
         break
       case '2':
+        setActive(event.currentTarget.id)
         break
       default:
         break
     }
   }
 
+  const [activeColor, setActiveColor] = useState('')
+
   const [bgColor, setBgColor] = useState('')
   const handleClickColor = (e) => {
     switch (e.target.value) {
       case 'blue':
-        return setBgColor('hue-rotate(30deg)')
+        setBgColor('hue-rotate(240deg)')
+        setActiveColor(e.target.value)
+        return
       case 'red':
-        return setBgColor('hue-rotate(90deg)')
+        setBgColor('hue-rotate(20deg)')
+        setActiveColor(e.target.value)
+        break
+      case 'green':
+        setBgColor('hue-rotate(120deg)')
+        setActiveColor(e.target.value)
+        break
+      case 'yellow':
+        setBgColor('hue-rotate(60deg)')
+        setActiveColor(e.target.value)
+        break
+      case 'grey':
+        setBgColor('grayscale(100%)')
+        setActiveColor(e.target.value)
+        break
       default:
-        return setBgColor('')
+        setBgColor('')
+        break
     }
   }
 
@@ -70,34 +93,47 @@ function App() {
             <button
               onClick={handleClickColor}
               value="blue"
-              className="one"
               type="button"
+              className={activeColor === 'blue' ? 'activeColor one' : 'one'}
             />
             <button
               onClick={handleClickColor}
               value="red"
-              className="two"
+              className={activeColor === 'red' ? 'activeColor two' : 'two'}
               type="button"
             />
-            <button className="three" type="button" />
-            <button className="four" type="button" />
-            <button className="five" type="button" />
+            <button
+              className={
+                activeColor === 'green' ? 'activeColor three' : 'three'
+              }
+              type="button"
+              onClick={handleClickColor}
+              value="green"
+            />
+            <button
+              className={activeColor === 'yellow' ? 'activeColor four' : 'four'}
+              type="button"
+              onClick={handleClickColor}
+              value="yellow"
+            />
+            <button
+              className={activeColor === 'grey' ? 'activeColor five' : 'five'}
+              type="button"
+              onClick={handleClickColor}
+              value="grey"
+            />
           </nav>
         </div>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ac
           accumsan risus. Aliquam erat volutpat. Suspendisse non efficitur nisl.
           Suspendisse potenti. Mauris nec lacus eu magna consequat finibus.
-          Integer vel eleifend orci. Sed at quam vehicula, iaculis lorem sit
-          amet, ultrices nisi. Nullam ut finibus diam, sit amet bibendum purus.
-          Phasellus tempor consectetur mi id auctor. Nunc vestibulum placerat
-          orci, nec mattis nisl commodo a. Fusce laoreet nibh sed ullamcorper
-          volutpat. Sed ullamcorper pharetra quam. Integer ac faucibus felis.
+          Integer vel eleifend orci.
         </p>
         <button
           onClick={handleClick}
           id="0"
-          className="sliderBtn"
+          className={active === '0' ? 'active sliderBtn' : 'sliderBtn'}
           type="button"
         >
           1
@@ -105,7 +141,7 @@ function App() {
         <button
           onClick={handleClick}
           id="1"
-          className="sliderBtn"
+          className={active === '1' ? 'active sliderBtn' : 'sliderBtn'}
           type="button"
         >
           2
@@ -113,7 +149,7 @@ function App() {
         <button
           onClick={handleClick}
           id="2"
-          className="sliderBtn"
+          className={active === '2' ? 'active sliderBtn' : 'sliderBtn'}
           type="button"
         >
           3
