@@ -5,27 +5,27 @@ function App() {
   const pictures = [
     {
       id: 1,
-      altText: 'Mountains',
+      altText: 'The Beach',
       image:
-        'https://images.unsplash.com/photo-1645702541728-340ea6af560a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1913&q=80',
+        'https://images.unsplash.com/photo-1476673160081-cf065607f449?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2072&q=80',
     },
     {
       id: 2,
-      altText: 'The fox',
+      altText: 'Mountains',
       image:
-        'https://images.unsplash.com/photo-1635834887704-18e67ae7ceba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1065&q=80',
+        'https://images.unsplash.com/photo-1573126617899-41f1dffb196c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
     },
     {
       id: 3,
-      altText: 'A women walking',
+      altText: 'Forest road',
       image:
-        'https://images.unsplash.com/photo-1645785512235-d76e6898ceaa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+        'https://images.unsplash.com/photo-1470115636492-6d2b56f9146d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
     },
   ]
 
   const [slider, setSlider] = useState(pictures[0])
-
   const [active, setActive] = useState('0')
+
   const handleClick = (event) => {
     event.preventDefault()
     console.log('clicked')
@@ -45,9 +45,9 @@ function App() {
     }
   }
 
-  const [activeColor, setActiveColor] = useState('')
-
+  const [activeColor, setActiveColor] = useState('reset')
   const [bgColor, setBgColor] = useState('')
+
   const handleClickColor = (e) => {
     switch (e.target.value) {
       case 'blue':
@@ -55,7 +55,7 @@ function App() {
         setActiveColor(e.target.value)
         return
       case 'red':
-        setBgColor('hue-rotate(20deg)')
+        setBgColor('hue-rotate(40deg)')
         setActiveColor(e.target.value)
         break
       case 'green':
@@ -70,11 +70,18 @@ function App() {
         setBgColor('grayscale(100%)')
         setActiveColor(e.target.value)
         break
+      case 'reset':
+        setBgColor('')
+        setActiveColor(e.target.value)
+        break
       default:
         setBgColor('')
         break
     }
   }
+
+  const [isShown, setIsShown] = useState(false)
+  const [resetShown, resetIsShown] = useState(false)
 
   return (
     <main>
@@ -89,20 +96,30 @@ function App() {
             }}
             className="pictureContainer"
           />
+          <div className="description">
+            {isShown && <div className="descrPad">Use this filter</div>}
+            {resetShown && <div className="descrPad">Reset filter</div>}
+          </div>
           <nav>
             <button
+              onMouseEnter={() => setIsShown(true)}
+              onMouseLeave={() => setIsShown(false)}
               onClick={handleClickColor}
               value="blue"
               type="button"
               className={activeColor === 'blue' ? 'activeColor one' : 'one'}
             />
             <button
+              onMouseEnter={() => setIsShown(true)}
+              onMouseLeave={() => setIsShown(false)}
               onClick={handleClickColor}
               value="red"
               className={activeColor === 'red' ? 'activeColor two' : 'two'}
               type="button"
             />
             <button
+              onMouseEnter={() => setIsShown(true)}
+              onMouseLeave={() => setIsShown(false)}
               className={
                 activeColor === 'green' ? 'activeColor three' : 'three'
               }
@@ -111,16 +128,28 @@ function App() {
               value="green"
             />
             <button
+              onMouseEnter={() => setIsShown(true)}
+              onMouseLeave={() => setIsShown(false)}
               className={activeColor === 'yellow' ? 'activeColor four' : 'four'}
               type="button"
               onClick={handleClickColor}
               value="yellow"
             />
             <button
+              onMouseEnter={() => setIsShown(true)}
+              onMouseLeave={() => setIsShown(false)}
               className={activeColor === 'grey' ? 'activeColor five' : 'five'}
               type="button"
               onClick={handleClickColor}
               value="grey"
+            />
+            <button
+              onMouseEnter={() => resetIsShown(true)}
+              onMouseLeave={() => resetIsShown(false)}
+              className={activeColor === 'reset' ? 'activeColor six' : 'six'}
+              type="button"
+              onClick={handleClickColor}
+              value="reset"
             />
           </nav>
         </div>
