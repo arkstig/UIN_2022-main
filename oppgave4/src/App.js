@@ -46,36 +46,49 @@ function App() {
   }
 
   const [activeColor, setActiveColor] = useState('reset')
-  const [bgColor, setBgColor] = useState('')
+  const [bgColor, setBgColor] = useState(
+    'linear-gradient(to right, rgba(0,223,247,0), rgba(0,24,255,0))'
+  )
 
   const handleClickColor = (e) => {
     switch (e.target.value) {
       case 'blue':
-        setBgColor('hue-rotate(240deg)')
+        setBgColor(
+          'linear-gradient(to right, rgba(0,223,247,0.3), rgba(0,24,255,0.3))'
+        )
         setActiveColor(e.target.value)
+
         return
       case 'red':
-        setBgColor('hue-rotate(40deg)')
+        setBgColor(
+          'linear-gradient(to right, rgba(247,147,0,0.3), rgba(255,70,0,0.3))'
+        )
         setActiveColor(e.target.value)
         break
       case 'green':
-        setBgColor('hue-rotate(120deg)')
+        setBgColor(
+          'linear-gradient(to right, rgba(173,247,0,0.3), rgba(0,255,96,0.3))'
+        )
         setActiveColor(e.target.value)
         break
       case 'yellow':
-        setBgColor('hue-rotate(60deg)')
-        setActiveColor(e.target.value)
-        break
-      case 'grey':
-        setBgColor('grayscale(100%)')
+        setBgColor(
+          'linear-gradient(to right, rgba(240,247,0,0.3), rgba(255,199,0,0.3))'
+        )
         setActiveColor(e.target.value)
         break
       case 'reset':
-        setBgColor('')
+        setBgColor(
+          'linear-gradient(to right, rgba(0,223,247,0), rgba(0,24,255,0))'
+        )
+
         setActiveColor(e.target.value)
         break
       default:
-        setBgColor('')
+        setBgColor(
+          'linear-gradient(to right, rgba(0,223,247,0), rgba(0,24,255,0))'
+        )
+
         break
     }
   }
@@ -91,8 +104,7 @@ function App() {
           <div
             title={slider.text}
             style={{
-              backgroundImage: `url(${slider.image})`,
-              filter: bgColor,
+              backgroundImage: `${bgColor}, url(${slider.image})`,
             }}
             className="pictureContainer"
           />
@@ -135,14 +147,7 @@ function App() {
               onClick={handleClickColor}
               value="yellow"
             />
-            <button
-              onMouseEnter={() => setIsShown(true)}
-              onMouseLeave={() => setIsShown(false)}
-              className={activeColor === 'grey' ? 'activeColor five' : 'five'}
-              type="button"
-              onClick={handleClickColor}
-              value="grey"
-            />
+
             <button
               onMouseEnter={() => resetIsShown(true)}
               onMouseLeave={() => resetIsShown(false)}
