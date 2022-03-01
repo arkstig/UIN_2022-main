@@ -54,26 +54,26 @@ function App() {
     switch (e.target.value) {
       case 'blue':
         setBgColor(
-          'linear-gradient(to right, rgba(0,223,247,0.3), rgba(0,24,255,0.3))'
+          'linear-gradient(to right, rgba(0,223,247,0.2), rgba(0,24,255,0.2))'
         )
         setActiveColor(e.target.value)
 
         return
       case 'red':
         setBgColor(
-          'linear-gradient(to right, rgba(247,147,0,0.3), rgba(255,70,0,0.3))'
+          'linear-gradient(to right, rgba(247,147,0,0.2), rgba(255,70,0,0.2))'
         )
         setActiveColor(e.target.value)
         break
       case 'green':
         setBgColor(
-          'linear-gradient(to right, rgba(173,247,0,0.3), rgba(0,255,96,0.3))'
+          'linear-gradient(to right, rgba(173,247,0,0.2), rgba(0,255,96,0.2))'
         )
         setActiveColor(e.target.value)
         break
       case 'yellow':
         setBgColor(
-          'linear-gradient(to right, rgba(240,247,0,0.3), rgba(255,199,0,0.3))'
+          'linear-gradient(to right, rgba(240,247,0,0.2), rgba(255,199,0,0.2))'
         )
         setActiveColor(e.target.value)
         break
@@ -108,6 +108,7 @@ function App() {
             }}
             className="pictureContainer"
           />
+
           <div className="description">
             {isShown && <div className="descrPad">Use this filter</div>}
             {resetShown && <div className="descrPad">Reset filter</div>}
