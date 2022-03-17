@@ -1,0 +1,73 @@
+@import 'reset.scss';
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+main {
+  margin: 0 auto;
+  max-width: 950px;
+  padding: 50px;
+  
+}
+
+// Styling av filmene i griden
+ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+  li {
+    width: 1fr;
+    img {
+      
+      Width: 100%;
+    
+  }
+  }
+}
+
+.pictureContainer{
+  width: 100%;
+  height: 400px;
+  background-position: center;
+  background-size: cover;
+  background-size: 100%;
+  display: flex;
+  align-items: flex-end;
+
+}
+
+.textBackground {
+  padding: 20px;
+  background-color: rgba($color: #ffffff, $alpha: 0.8);
+  font-weight: 600;
+  width: 100%;
+}
+
+h2 {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+  background-color: black;
+  justify-items: stretch;
+  margin-bottom: 24px;
+   input {
+    width: 100%;
+    height: 50px;
+  }
+  button {
+      width: 100px;
+      background-color: black;
+      color: white;
+  }
+}
+
+
+
+
