@@ -1,19 +1,25 @@
-import MyComponent from './components/MyComponent'
-import { getQuizzes } from './lib/services/quiz'
+import { Routes, Route } from 'react-router-dom'
+import Layout from './layout/Layout'
+
+import Quiz from './pages/Quiz'
+import Quizzes from './pages/Quizzes'
 
 function App() {
   // Write JavaScript, use Hooks, add state and more
 
-  const getSanityData = () => {
-    getQuizzes()
-  }
   return (
-    <main className="mx-auto mt-6 max-w-sm border-2 p-6">
-      <p className="text-3xl font-bold underline">Add JSX</p>
-      <p>Add components</p>
-      <MyComponent />
-      <button onClick={getSanityData}>Klikk meg</button>
-    </main>
+    <Routes>
+      {/* Gir konsistent layout (Main) på alle ruter */}
+      <Route element={<Layout />}>
+        {/* /quiz */}
+        <Route path="quiz">
+          {/* /quiz */}
+          <Route index element={<Quizzes />} />
+          {/* /quiz/et-eller-annet */}
+          <Route path=":slug" element={<Quiz />} />
+        </Route>
+      </Route>
+    </Routes>
   )
 }
 
