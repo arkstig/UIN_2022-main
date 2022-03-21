@@ -4,7 +4,6 @@ import { getQuizBySlug } from '../lib/services/quiz'
 
 export default function Quiz() {
   const [content, setContent] = useState(null)
-
   const { slug } = useParams()
 
   useEffect(() => {
