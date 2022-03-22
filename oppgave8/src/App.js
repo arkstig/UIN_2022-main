@@ -6,6 +6,7 @@ import Actor from './pages/Actor'
 import Movies from './pages/Movies'
 import Movie from './pages/Movie'
 import Navigation from './components/Navigation'
+import Home from './pages/Home'
 
 function App() {
   // Write JavaScript, use Hooks, add state and more
@@ -16,7 +17,7 @@ function App() {
       <Routes>
         {/* Gir konsistent layout (Main) på alle ruter */}
         <Route element={<Layout />}>
-          <Route path="/" element={<Actors />} />
+          <Route path="/" element={<Home />} />
           <Route path="movies">
             <Route index element={<Movies />} />
             <Route path=":slug" element={<Movie />} />

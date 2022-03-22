@@ -5,14 +5,23 @@ import { getMovieBySlug } from '../lib/services/movieService'
 export default function Movie() {
   const [content, setContent] = useState([])
   const { slug } = useParams()
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     const getMovie = async () => {
+      setLoading(true)
+
       const data = await getMovieBySlug(slug)
+      setLoading(false)
+
       setContent(data)
     }
     getMovie()
   }, [])
+
+  if (loading) {
+    return <p>Henter data...</p>
+  }
 
   return (
     <div>

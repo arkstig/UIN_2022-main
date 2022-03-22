@@ -26,7 +26,12 @@ export default function Actors() {
       <ul>
         {content?.map((actors) => (
           <li key={actors.slug}>
-            <Link to={`/actors/${actors.slug}`}>{actors.title}</Link>
+            <Link
+              className="text-amber-900 hover:text-amber-400 "
+              to={`/actors/${actors.slug}`}
+            >
+              {actors.title}
+            </Link>
           </li>
         ))}
       </ul>

@@ -26,7 +26,12 @@ export default function Movies() {
       <ul>
         {content?.map((movies) => (
           <li key={movies.slug}>
-            <Link to={`/movies/${movies.slug}`}>{movies.title}</Link>
+            <Link
+              className="text-amber-900 hover:text-amber-400 "
+              to={`/movies/${movies.slug}`}
+            >
+              {movies.title}
+            </Link>
             <h2>{movies.actors}</h2>
           </li>
         ))}
